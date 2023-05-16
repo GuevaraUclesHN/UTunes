@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UTunes.Core;
+
 using UTunes.Infrastructure.Database;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,6 @@ var allowAllOriginsPolicy = "_allowAllOriginsPolicy";
 
 
 // Add services to the container.
-
 builder.Services.AddDbContext<UTunesContext>(options => options.UseSqlite("DataSource=UTunes.db"));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 builder.Services.AddCors(options =>
